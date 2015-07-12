@@ -1,8 +1,10 @@
 package com.expense.ankit.expensemanager;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -90,8 +92,29 @@ public class DisplayTran extends ActionBarActivity {
 
     public void onAddHit(View view)
     {
-        int id = myDb.numberOfRows()+1;
-        myDb.insertTransaction(id,name.getText().toString(), email.getText().toString(), Double.parseDouble(amount.getText().toString()));
-        Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
+        Button btn1 = (Button) view;
+        if(btn1.getText().toString() == "Update")
+        {
+            //int id = myDb.numberOfRows() + 1;
+            myDb.updateTransaction(id_To_Update, name.getText().toString(), email.getText().toString(), Double.parseDouble(amount.getText().toString()));
+            Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
+        }
+        else
+        {
+            int id = myDb.numberOfRows() + 1;
+            myDb.insertTransaction(id, name.getText().toString(), email.getText().toString(), Double.parseDouble(amount.getText().toString()));
+            Toast.makeText(getApplicationContext(), "done", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            Intent i = new Intent(getApplicationContext(), TransactionActivity.class);
+            startActivity(i);
+        }
+        return true;
     }
 }
