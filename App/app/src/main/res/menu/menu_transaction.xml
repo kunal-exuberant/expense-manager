@@ -1,6 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".LoginActivity">
-    <item android:id="@+id/transaction" android:title="@string/transaction"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.expense.ankit.expensemanager.TransactionActivity">
+    <item android:id="@+id/add_new" android:title="@string/add_new"
         android:orderInCategory="100" app:showAsAction="never" />
 </menu>

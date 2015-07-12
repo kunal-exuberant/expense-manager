@@ -8,6 +8,15 @@ public class User
     String name;
     int userId;
     double balance;
+    String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getName() {
         return name;
@@ -42,6 +51,10 @@ public class User
         else if(column == "Balance")
         {
             return this.balance + "";
+        }
+        else if(column =="email")
+        {
+            return this.email;
         }
         else
         {

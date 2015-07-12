@@ -23,7 +23,7 @@ import java.util.Hashtable;
 //import org.apache.http.client.methods.HttpPost;
 
 
-public class HistoryActivity extends Activity implements DownloadResultReceiver.Receiver {
+public class HistoryActivity extends ActionBarActivity implements DownloadResultReceiver.Receiver {
 
     private ListView listView = null;
 
@@ -35,9 +35,10 @@ public class HistoryActivity extends Activity implements DownloadResultReceiver.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        //super.onCreate(savedInstanceState);
                 /* Allow activity to show indeterminate progressbar */
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
         listView = (ListView) findViewById(R.id.listview);
